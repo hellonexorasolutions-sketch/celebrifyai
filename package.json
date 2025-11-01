@@ -10,13 +10,19 @@
     "build": "cd client && npm run build",
     "start": "cd server && npm start"
   },
-  "keywords": ["ai", "chatbot", "creator", "influencer", "personalized"],
+  "keywords": [
+    "ai",
+    "chatbot",
+    "creator",
+    "influencer",
+    "personalized"
+  ],
   "author": "Celebify.AI",
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }
-
-
-
