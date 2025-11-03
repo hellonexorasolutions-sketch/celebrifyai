@@ -30,8 +30,8 @@ app.get("/test-supabase", async (req, res) => {
   }
 });
 
-// ✅ Important for Render — dynamic port
+// ✅ Important for Render — dynamic port and 0.0.0.0 binding
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`✅ Server is running on port ${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`✅ Server is running and listening on port ${PORT}`);
 });
