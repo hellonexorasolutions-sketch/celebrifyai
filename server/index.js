@@ -15,11 +15,17 @@ const supabase = createClient(
   process.env.SUPABASE_ANON_KEY
 );
 
+// ✅ Root route
 app.get("/", (req, res) => {
   res.send("✅ Celebify AI backend is running successfully!");
 });
 
-// Example endpoint to test Supabase
+// ✅ Health check route (for Render)
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
+
+// ✅ Example endpoint to test Supabase
 app.get("/test-supabase", async (req, res) => {
   try {
     const { data, error } = await supabase.from("users").select("*").limit(1);
@@ -35,3 +41,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`✅ Server is running and listening on port ${PORT}`);
 });
+A
