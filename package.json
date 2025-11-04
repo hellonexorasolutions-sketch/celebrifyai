@@ -1,29 +1,20 @@
 {
-  "name": "celebify-ai",
+  "name": "celebify-ai-server",
   "version": "1.0.0",
-  "description": "Celebify.AI - Personalized AI chatbots for creators",
+  "type": "module",
   "main": "server/index.js",
   "scripts": {
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "cd server && npm run dev",
-    "client": "cd client && npm start",
-    "build": "cd client && npm run build",
-    "start": "cd server && npm start"
-  },
-  "keywords": [
-    "ai",
-    "chatbot",
-    "creator",
-    "influencer",
-    "personalized"
-  ],
-  "author": "Celebify.AI",
-  "license": "MIT",
-  "devDependencies": {
-    "concurrently": "^8.2.2"
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
     "cors": "^2.8.5",
-    "express": "^5.1.0"
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
+
