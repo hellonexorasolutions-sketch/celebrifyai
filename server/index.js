@@ -9,23 +9,23 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// ✅ Connect to Supabase
+// ✅ Supabase setup
 const supabase = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_ANON_KEY
 );
 
-// ✅ Root route
+// ✅ Root route (Render uses this to check if app is alive)
 app.get("/", (req, res) => {
-  res.send("✅ Celebify AI backend is running successfully!");
+  res.status(200).send("✅ Celebify AI backend is running successfully!");
 });
 
-// ✅ Health check route (for Render)
+// ✅ Health check route
 app.get("/health", (req, res) => {
   res.status(200).send("OK");
 });
 
-// ✅ Example endpoint to test Supabase
+// ✅ Example route to test Supabase connection
 app.get("/test-supabase", async (req, res) => {
   try {
     const { data, error } = await supabase.from("users").select("*").limit(1);
@@ -36,8 +36,8 @@ app.get("/test-supabase", async (req, res) => {
   }
 });
 
-// ✅ Start server
+// ✅ Render assigns a PORT dynamically
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`✅ Server is running and listening on port ${PORT}`);
 });
